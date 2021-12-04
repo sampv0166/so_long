@@ -10,12 +10,7 @@ char	*ft_strjoin(char *s1, char *s2)
 	i = 0;
 	j = 0;
 	if (!s1)
-	{
-		s1 = malloc(sizeof(char));
-		*s1 = '\0';
-		if (!s1)
-			return (NULL);
-	}
+		s1 = allocate_memmory(s1);
 	total_len = ft_strlen(s1) + ft_strlen(s2);
 	new_string = (char *) malloc(sizeof(char) * total_len + 1);
 	if (!new_string)
@@ -57,6 +52,17 @@ void	cep_check(t_game *game, char *map)
 		error();
 }
 
+int	check_characters(char c)
+{
+	if (c == '0' || c == '1' || c == 'E' \
+		|| c == 'C' || c == 'P' || c == '\n' \
+		|| c == 'M')
+	{
+		return (1);
+	}
+	return (0);
+}
+
 char	*read_file(t_game *game, int i)
 {
 	int		fd;
@@ -76,9 +82,7 @@ char	*read_file(t_game *game, int i)
 			break ;
 		if (buffer[0] == 'M')
 			game->zomb_count++;
-		if (buffer[0] == '0' || buffer[0] == '1' || buffer[0] == 'E' \
-		|| buffer[0] == 'C' || buffer[0] == 'P' || buffer[0] == '\n' \
-		|| buffer[0] == 'M')
+		if (check_characters(buffer[0]))
 		{
 			map = ft_strjoin(map, buffer);
 		}

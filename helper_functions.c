@@ -24,10 +24,11 @@ size_t	ft_strlen(const char *str)
 	return (i);
 }
 
-void	allocate_memmory(char *s)
+char	*allocate_memmory(char *s)
 {
 	s = (char *) malloc(sizeof(char ));
 	if (!s)
-		return ;
+		exit(0);
 	*s = '\0';
+	return (s);
 }

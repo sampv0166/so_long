@@ -32,7 +32,7 @@ void	set_column_row(char *map, t_game *game)
 			row++;
 		i++;
 	}
-	game->map.line = row;
+	game->map.line = row + 1;
 }
 
 int	square_check(t_game *game, char **og_map)
@@ -64,21 +64,11 @@ int	walls_check(t_game *game, char **og_map)
 			return (1);
 		if (og_map[j][game->map.colum - 1] != '1')
 			return (1);
-		j++;
-	}
-	j = 0;
-	while (og_map[0][j])
-	{
 		if (og_map[0][j] != '1')
 			return (1);
-		j++;
-	}
-	j = 0;
-	while (i < game->map.line)
-	{
 		if (og_map[game->map.line - 1][j++] != '1')
 			return (1);
-		i++;
+		j++;
 	}
 	return (0);
 }

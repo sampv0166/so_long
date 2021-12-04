@@ -106,6 +106,20 @@ void	*ft_calloc(size_t count, size_t size);
 void	ft_bzero(void *str, size_t n);
 void	*ft_memset(void *ptr, int x, size_t n);
 void	free_me(char **str);
-void	allocate_memmory(char *s);
+char	*allocate_memmory(char *s);
+void	init_game(t_game *game);
+void	init_images(t_game *game);
+void	init_player_image(t_game *game);
+int		init_sprites(t_game *game);
+int		init_enemy_sprites(t_game *game);
+void	replace_image(t_game *game, int x, int y);
+void	reset_map_and_update_player_pos(t_game *game, int x, int y);
+void	update_steps(t_game *game);
+void	move_player(t_game *game, int x, int y);
+int		action(int keycode, t_game *game);
+void	draw_map(t_game *game);
+void	print_10p(t_game *game, int line, int col);
+void	print_ec(t_game *game, int line, int col);
+void	move_zombi(t_game *game, int i);
 
 #endif
