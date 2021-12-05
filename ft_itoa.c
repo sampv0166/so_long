@@ -6,7 +6,7 @@
 /*   By: apila-va <apila-va@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/16 09:43:22 by apila-va          #+#    #+#             */
-/*   Updated: 2021/11/22 23:49:40 by apila-va         ###   ########.fr       */
+/*   Updated: 2021/12/05 01:35:49 by apila-va         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,13 +45,15 @@ static void	ft_itoa2(long number, char *ptr, size_t i, int n)
 	}
 }
 
-char	*ft_itoa(int n)
+char	*ft_itoa(int n, char *s)
 {
 	size_t	array_length;
 	char	*ptr;
 	size_t	i;
 	long	number;
 
+	if (!s)
+		allocate_memmory(s);
 	number = n;
 	array_length = ft_find_len(number);
 	i = array_length - 1;

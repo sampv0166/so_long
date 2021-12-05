@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   mov_player.c                                       :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: apila-va <apila-va@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2021/12/05 05:45:44 by apila-va          #+#    #+#             */
+/*   Updated: 2021/12/05 05:46:53 by apila-va         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "long.h"
 
 void	replace_image(t_game *game, int x, int y)
@@ -16,7 +28,6 @@ void	reset_map_and_update_player_pos(t_game *game, int x, int y)
 
 void	update_steps(t_game *game)
 {
-	char	*s;
 	size_t	i;
 
 	i = 0;
@@ -28,12 +39,12 @@ void	update_steps(t_game *game)
 		game->exit_x, game->exit_y);
 	mlx_string_put(game->mlx, game->win, game->exit_x + 30, \
 				game->exit_y + 40, 0x00FF00, "STEPS");
+	game->steps_string = ft_itoa(game->steps++, game->steps_string);
 	mlx_string_put(game->mlx, game->win, game->exit_x + 35, game->exit_y + 60, \
-				0x00FF00, ft_itoa(++game->steps));
-	s = ft_itoa(game->steps);
-	while (s[i])
+				0x00FF00, game->steps_string);
+	while (game->steps_string[i])
 	{
-		write(1, &s[i], 1);
+		write(1, &game->steps_string [i], 1);
 		i++;
 	}
 }

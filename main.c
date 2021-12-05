@@ -6,7 +6,7 @@
 /*   By: apila-va <apila-va@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/08 12:48:14 by apila-va          #+#    #+#             */
-/*   Updated: 2021/12/04 21:43:21 by apila-va         ###   ########.fr       */
+/*   Updated: 2021/12/05 01:47:40 by apila-va         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,33 +14,39 @@
 
 void	replace_zombi_image(t_game *game, int x, int y, int i)
 {
-	mlx_put_image_to_window(game->mlx, game->win, game->img.emp.img, x, y);
-	mlx_put_image_to_window(game->mlx, game->win, \
-				game->img.monster.img_m[game->enemy_img_count], x + 100, y);
-	game->map.map[y / 100][x / 100] = '0';
-	game->map.map[y / 100][x / 100 + 1] = 'M';
-	game->zombis[i].zomb_x = x + 100;
-	game->zombis[i].zomb_y = y;
-	if (game->map.map[y / 100 ][x / 100 + 2] && game->map.map[y / 100 ] \
-	[x / 100 + 2] != '0' && game->map.map[y / 100 ][x / 100 + 2] != 'P')
+	if (game->zomb_count_save > 0)
 	{
-		game->zombis[i].direction = 0;
-	}
+		game->map.map[y / 100][x / 100] = '0';
+		game->map.map[y / 100][x / 100 + 1] = 'M';
+		game->zombis[i].zomb_x = x + 100;
+		game->zombis[i].zomb_y = y;
+		if (game->map.map[y / 100 ][x / 100 + 2] && game->map.map[y / 100 ] \
+		[x / 100 + 2] != '0' && game->map.map[y / 100 ][x / 100 + 2] != 'P')
+		{
+			game->zombis[i].direction = 0;
+		}
+		mlx_put_image_to_window(game->mlx, game->win, game->img.emp.img, x, y);
+		mlx_put_image_to_window(game->mlx, game->win, \
+				game->img.monster.img_m[game->enemy_img_count], x + 100, y);
+	}			
 }
 
 void	replace_zombi_image_back(t_game *game, int x, int y, int i)
 {
-	mlx_put_image_to_window(game->mlx, game->win, game->img.emp.img, x, y);
-	mlx_put_image_to_window(game->mlx, game->win, game->img.monster.img_m \
-							[game->enemy_img_count], x - 100, y);
-	game->map.map[y / 100][x / 100] = '0';
-	game->map.map[y / 100][x / 100 - 1] = 'M';
-	game->zombis[i].zomb_x = x - 100;
-	game->zombis[i].zomb_y = y;
-	if (game->map.map[y / 100 ][x / 100 - 2] && game->map.map[y / 100 ] \
-		[x / 100 - 2] != '0' && game->map.map[y / 100 ][x / 100 - 2] != 'P')
+	if (game->zomb_count_save > 0)
 	{
-		game->zombis[i].direction = 1;
+		game->map.map[y / 100][x / 100] = '0';
+		game->map.map[y / 100][x / 100 - 1] = 'M';
+		game->zombis[i].zomb_x = x - 100;
+		game->zombis[i].zomb_y = y;
+		if (game->map.map[y / 100 ][x / 100 - 2] && game->map.map[y / 100 ] \
+			[x / 100 - 2] != '0' && game->map.map[y / 100 ][x / 100 - 2] != 'P')
+		{
+			game->zombis[i].direction = 1;
+		}
+		mlx_put_image_to_window(game->mlx, game->win, game->img.emp.img, x, y);
+		mlx_put_image_to_window(game->mlx, game->win, game->img.monster.img_m \
+							[game->enemy_img_count], x - 100, y);
 	}
 }
 

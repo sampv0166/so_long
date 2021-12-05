@@ -90,6 +90,7 @@ typedef struct s_game
 	int		enemy_img_count;
 	int		zomb_count_save;
 	int		zomb_count;
+	char	*steps_string;
 	t_zomb	*zombis;
 
 }				t_game;
@@ -100,7 +101,7 @@ char	**ft_split(char const *str, char c);
 size_t	ft_strlen(const char *s);
 char	**get_map(t_game *game);
 char	*read_file(t_game *game, int i);
-char	*ft_itoa(int n);
+char	*ft_itoa(int n, char *s);
 void	error(void);
 void	*ft_calloc(size_t count, size_t size);
 void	ft_bzero(void *str, size_t n);
