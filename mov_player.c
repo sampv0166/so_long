@@ -6,13 +6,13 @@
 /*   By: apila-va <apila-va@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/05 05:45:44 by apila-va          #+#    #+#             */
-/*   Updated: 2021/12/05 05:46:53 by apila-va         ###   ########.fr       */
+/*   Updated: 2021/12/16 05:47:24 by apila-va         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "long.h"
 
-void	replace_image(t_game *game, int x, int y)
+void	replace_image(t_game *game)
 {
 	mlx_put_image_to_window(game->mlx, game->win, game->img.emp.img, \
 							game->map.player.x, game->map.player.y);
@@ -57,14 +57,14 @@ void	move_player(t_game *game, int x, int y)
 	}
 	if (game->map.map[y / 100][x / 100] == 'E' && game->collect_count == 0)
 	{
-		replace_image(game, x, y);
+		replace_image(game);
 		reset_map_and_update_player_pos(game, x, y);
 		update_steps(game);
 		exit(0);
 	}
 	else if (game->map.map[y / 100][x / 100] == 'C' )
 	{
-		replace_image(game, x, y);
+		replace_image(game);
 		reset_map_and_update_player_pos(game, x, y);
 		game->collect_count--;
 		update_steps(game);
@@ -72,7 +72,7 @@ void	move_player(t_game *game, int x, int y)
 	else if (game->map.map[y / 100][x / 100] == '0' \
 			&& game->map.map[y / 100][x / 100] != '1')
 	{
-		replace_image(game, x, y);
+		replace_image(game);
 		reset_map_and_update_player_pos(game, x, y);
 		update_steps(game);
 	}

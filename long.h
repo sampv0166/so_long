@@ -113,7 +113,7 @@ void	init_images(t_game *game);
 void	init_player_image(t_game *game);
 int		init_sprites(t_game *game);
 int		init_enemy_sprites(t_game *game);
-void	replace_image(t_game *game, int x, int y);
+void	replace_image(t_game *game);
 void	reset_map_and_update_player_pos(t_game *game, int x, int y);
 void	update_steps(t_game *game);
 void	move_player(t_game *game, int x, int y);
