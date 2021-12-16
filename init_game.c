@@ -6,7 +6,7 @@
 /*   By: apila-va <apila-va@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/05 05:45:44 by apila-va          #+#    #+#             */
-/*   Updated: 2021/12/05 05:46:38 by apila-va         ###   ########.fr       */
+/*   Updated: 2021/12/15 22:21:00 by apila-va         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -122,7 +122,7 @@ void	init_game(t_game *game)
 	game->enemy_sprite_count = 0;
 	game->enemy_img_count = 0;
 	game->zombis = malloc(sizeof(t_zomb) * game->zomb_count + 1);
-	game->zomb_count_save = game->zomb_count + 1;
+	game->zomb_count_save = game->zomb_count;
 	game->zombis[game->zomb_count].zomb_x = 0;
 	game->zombis[game->zomb_count].zomb_y = 0;
 	if (!(game->zomb_count <= 0))

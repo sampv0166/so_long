@@ -6,7 +6,7 @@
 /*   By: apila-va <apila-va@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/05 05:45:44 by apila-va          #+#    #+#             */
-/*   Updated: 2021/12/05 05:47:00 by apila-va         ###   ########.fr       */
+/*   Updated: 2021/12/16 05:27:17 by apila-va         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,13 +75,13 @@ int	check_characters(char c)
 	return (0);
 }
 
-char	*read_file(t_game *game, int i)
+char	*read_file(t_game *game, int i, char **argv)
 {
 	int		fd;
 	char	*map;
 	char	buffer[2];
 
-	fd = open("map.ber", O_RDONLY);
+	fd = open(argv[1], O_RDONLY);
 	map = NULL;
 	while (i > 0)
 	{

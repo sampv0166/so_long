@@ -6,7 +6,7 @@
 /*   By: apila-va <apila-va@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/05 05:45:44 by apila-va          #+#    #+#             */
-/*   Updated: 2021/12/05 05:46:47 by apila-va         ###   ########.fr       */
+/*   Updated: 2021/12/16 05:26:44 by apila-va         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -85,12 +85,21 @@ int	walls_check(t_game *game, char **og_map)
 	return (0);
 }
 
-char	**get_map(t_game *game)
+char	**get_map(t_game *game, int argc, char **argv)
 {
 	char	*map;
 	char	**og_map;
+	size_t	fnl;
 
-	map = read_file(game, 1);
+	if (argc <= 1)
+		error();
+	fnl = ft_strlen(argv[1]);
+	if (argv[1][fnl - 1] != 'r' || argv[1][fnl - 2] != 'e' || \
+		argv[1][fnl - 3] != 'b' || argv[1][fnl - 4] != '.')
+	{
+		error();
+	}
+	map = read_file(game, 1, argv);
 	if (check_for_newlines(map, game) > 0)
 	{
 		error();

@@ -6,11 +6,11 @@
 /*   By: apila-va <apila-va@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/05 05:45:44 by apila-va          #+#    #+#             */
-/*   Updated: 2021/12/05 05:46:15 by apila-va         ###   ########.fr       */
+/*   Updated: 2021/12/16 05:00:14 by apila-va         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include"long.h"
+#include "long.h"
 
 char	*ft_substr(char const *s, unsigned int start, size_t len)
 {
