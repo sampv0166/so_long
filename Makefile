@@ -8,14 +8,18 @@ SRC_NAME  = draw_map.c \
 			move_player.c \
 			read_map_file.c \
 			main.c
-CFLAGS   = -Wall -Wextra -Werror
+
+OBJ_NAME = $(SRC_NAME:.c=.o)
+CC			=	gcc
+CFLAGS   = -Wall -Wextra -Werror 
 MLX_FLAGS  =-L./mlx -lmlx -framework OpenGL -framework AppKit
 NAME 	 = so_long
 MLX_PATH = ./mlx
 
-all: ${NAME}
+all: $(NAME)
 
-${NAME}: gcc $(CFLAGS) $(MLX_FLAGS) $(SRC_NAME) -o $(NAME)
+$(NAME):  	$(OBJ_NAME)
+			$(CC) $(CFLAGS) $(MLX_FLAGS) $(OBJE_NAME) -o $(NAME)
 
 
 

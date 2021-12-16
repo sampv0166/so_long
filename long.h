@@ -61,8 +61,8 @@ typedef struct s_map
 {
 	t_pos		player;
 	t_pos		monster;
-	int			colum;
-	int			line;
+	size_t		colum;
+	size_t		line;
 	char		**map;
 }				t_map;
 
