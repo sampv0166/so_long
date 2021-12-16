@@ -95,7 +95,6 @@ typedef struct s_game
 
 }				t_game;
 
-int		close_win(t_game *game);
 int		key_hook(int keycode, t_game *game);
 char	**ft_split(char const *str, char c);
 size_t	ft_strlen(const char *s);

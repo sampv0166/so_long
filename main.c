@@ -6,7 +6,7 @@
 /*   By: apila-va <apila-va@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/08 12:48:14 by apila-va          #+#    #+#             */
-/*   Updated: 2021/12/16 05:08:23 by apila-va         ###   ########.fr       */
+/*   Updated: 2021/12/16 08:12:31 by apila-va         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,6 +73,11 @@ void	move_zombi(t_game *game, int i)
 	}
 }
 
+int	close_win(void)
+{
+	exit(0);
+}
+
 int	main(int argc, char **argv)
 {
 	t_game	game;
@@ -83,6 +88,7 @@ int	main(int argc, char **argv)
 	game.win = mlx_new_window(game.mlx, game.map.colum \
 	 * TILES, game.map.line * TILES, "so_long");
 	draw_map(&game);
+	mlx_hook(game.win, 17, 0, close_win, &game);
 	mlx_hook(game.win, 2, 1L << 0, action, &game);
 	mlx_loop_hook(game.mlx, init_sprites, &game);
 	mlx_loop(game.mlx);
