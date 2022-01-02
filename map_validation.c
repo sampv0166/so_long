@@ -6,7 +6,7 @@
 /*   By: apila-va <apila-va@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/05 05:45:44 by apila-va          #+#    #+#             */
-/*   Updated: 2021/12/23 02:04:27 by apila-va         ###   ########.fr       */
+/*   Updated: 2022/01/02 10:54:34 by apila-va         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -108,7 +108,8 @@ char	**get_map(t_game *game, int argc, char **argv)
 		error(game, "not enough arguments");
 	fnl = ft_strlen(argv[1]);
 	if (argv[1][fnl - 1] != 'r' || argv[1][fnl - 2] != 'e' || \
-		argv[1][fnl - 3] != 'b' || argv[1][fnl - 4] != '.')
+	argv[1][fnl - 3] != 'b' || argv[1][fnl - 4] != '.' || \
+	argv[1][fnl - 5] == 0)
 	{
 		error(game, "map file extension is wrong");
 	}
@@ -117,12 +118,10 @@ char	**get_map(t_game *game, int argc, char **argv)
 		error(game, "invalid map");
 	set_row(game->temp_map, game);
 	if (check_for_newlines(game->temp_map, game) > 0)
-	{
 		error(game, "invalid map");
-	}
 	og_map = ft_split(game->temp_map, '\n');
 	if (!og_map)
-		error(game, "somthing is wrong");
+		error(game, "error");
 	if (square_check(game, og_map) || walls_check(game, og_map))
 		error(game, "invalid map");
 	return (og_map);
