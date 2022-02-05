@@ -6,7 +6,7 @@
 /*   By: apila-va <apila-va@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/05 05:45:44 by apila-va          #+#    #+#             */
-/*   Updated: 2022/01/02 11:06:15 by apila-va         ###   ########.fr       */
+/*   Updated: 2022/02/05 08:03:43 by apila-va         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ void	error(t_game *game, char *msg)
 	if (game->temp_map && game->temp_map != NULL)
 		free(game->temp_map);
 	printf("Error\n%s", msg);
-	exit(0);
+	exit(1);
 }
 
 void	free_me(char **str)

@@ -6,11 +6,13 @@
 /*   By: apila-va <apila-va@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/05 05:45:44 by apila-va          #+#    #+#             */
-/*   Updated: 2022/01/02 10:54:34 by apila-va         ###   ########.fr       */
+/*   Updated: 2022/02/05 07:03:13 by apila-va         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "long.h"
+
+// count columns only on first row
 
 int	check_for_newlines(char *map, t_game *game)
 {
@@ -21,7 +23,7 @@ int	check_for_newlines(char *map, t_game *game)
 	col = 0;
 	while (row < game->map.line)
 	{
-		while (map[col++])
+		while (map[col])
 		{
 			if (row == 0)
 				game->map.colum = col;
@@ -32,6 +34,7 @@ int	check_for_newlines(char *map, t_game *game)
 				else
 					break ;
 			}
+			col++;
 		}
 		row++;
 	}
@@ -71,6 +74,9 @@ int	square_check(t_game *game, char **og_map)
 	}
 	return (0);
 }
+
+// check the first row and last row 
+// check first column and last column
 
 int	walls_check(t_game *game, char **og_map)
 {

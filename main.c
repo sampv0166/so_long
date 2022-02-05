@@ -6,7 +6,7 @@
 /*   By: apila-va <apila-va@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/08 12:48:14 by apila-va          #+#    #+#             */
-/*   Updated: 2021/12/31 18:39:05 by apila-va         ###   ########.fr       */
+/*   Updated: 2022/02/05 07:20:08 by apila-va         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -100,6 +100,9 @@ void	move_zombi(t_game *game, int i, int xx, int yy)
 	}
 }
 
+// 17	=  DestroyNotify
+// (1L<<0)	KeyPressMask
+// ON_KEYDOWN	2
 int	main(int argc, char **argv)
 {
 	t_game	game;

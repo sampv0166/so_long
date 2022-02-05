@@ -6,7 +6,7 @@
 /*   By: apila-va <apila-va@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/05 05:45:44 by apila-va          #+#    #+#             */
-/*   Updated: 2022/01/02 10:39:15 by apila-va         ###   ########.fr       */
+/*   Updated: 2022/02/05 07:37:46 by apila-va         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -111,6 +111,9 @@ void	init_images(t_game *game)
 	game->img.exit_open.img = mlx_xpm_file_to_image(game->mlx, PATH_EX_OPEN, \
 	 			&game->img.exit_open.size.x, &game->img.exit_open.size.y);
 }
+
+// saving the zomb_count for later use becuase im gonna change zomb count
+// decrease zomb count by 1
 
 void	init_game(t_game *game)
 {
