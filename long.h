@@ -6,7 +6,7 @@
 /*   By: apila-va <apila-va@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/02 10:37:05 by apila-va          #+#    #+#             */
-/*   Updated: 2022/01/02 10:37:07 by apila-va         ###   ########.fr       */
+/*   Updated: 2022/02/05 08:16:02 by apila-va         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,6 @@
 # include<stdlib.h>
 # include<unistd.h>
 # include<fcntl.h>
-# include<stdio.h>
 
 # define TILES 100
 # define PATH_E "./assets/empty.xpm"

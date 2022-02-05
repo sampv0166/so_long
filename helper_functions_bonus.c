@@ -6,7 +6,7 @@
 /*   By: apila-va <apila-va@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/05 05:45:44 by apila-va          #+#    #+#             */
-/*   Updated: 2022/01/02 11:07:06 by apila-va         ###   ########.fr       */
+/*   Updated: 2022/02/05 08:20:22 by apila-va         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,8 +32,8 @@ void	error(t_game *game, char *msg)
 		free(game->zombis);
 	if (game->temp_map && game->temp_map != NULL)
 		free(game->temp_map);
-	printf("Error\n%s", msg);
-	exit(0);
+	write(1, msg, ft_strlen(msg));
+	exit(1);
 }
 
 void	free_me(char **str)
@@ -86,6 +86,6 @@ void	game_end_success(t_game *game, char *msg)
 		free(game->zombis);
 	if (game->temp_map)
 		free_me(&game->temp_map);
-	printf("%s", msg);
+	write(1, msg, ft_strlen(msg));
 	exit(0);
 }

@@ -6,7 +6,7 @@
 /*   By: apila-va <apila-va@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/05 05:45:44 by apila-va          #+#    #+#             */
-/*   Updated: 2021/12/23 03:34:09 by apila-va         ###   ########.fr       */
+/*   Updated: 2022/02/05 08:20:39 by apila-va         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,7 +47,7 @@ void	update_steps(t_game *game)
 		write(1, &game->steps_string [i], 1);
 		i++;
 	}
-	printf("\n");
+	write(1, "\n", 1);
 }
 
 void	move_player(t_game *game, int x, int y)
